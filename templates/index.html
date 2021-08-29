@@ -9,18 +9,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="icon" href="https://cdn1.iconfinder.com/data/icons/logos-brands-in-colors/231/among-us-player-white-512.png">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <title>SSUSS</title>
   </head>
   <body>
-    
     <div
     class="bg-image"
     style="background-image: url('http://wallpaperstock.net/simple-white-apple_wallpapers_44562_1920x1080.jpg');
       height: 100vh;"
     >
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="">NEWSITE</a>
+          <a class="navbar-brand" href="">Hey {{request.user}}</a>
           {% csrf_token %}
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,13 +33,16 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/products/">Products</a>
-              </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-current="page" href="#">{{date}}</a>
+                </li>
+              </li>  
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                 Services
+                  Services
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="/">AboutUs</a></li>
+                  <li><a class="dropdown-item" href="/atmlogin/">AboutUs</a></li>
                   <li><a class="dropdown-item" href="#">ContactUs</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">Raise Complaint</a></li>
@@ -46,41 +50,43 @@
                     <a class="btn btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                       Dropdown link
                     </a>
-                  
+                    
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       <li><a class="dropdown-item" href="#">Action</a></li>
                       <li><a class="dropdown-item" href="#">Another action</a></li>
                       <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                   </div>
-            
                   
-                </a></li>
+                  
                   
 
                   
                   
-                </ul>
-              </li>
-              <li class="nav-item">
-                <!-- <a class="nav-link" href="/login/" tabindex="-1" aria-disabled="true">Login with another account</a> -->
-              </li>
-              
-              
-              <li class="nav-item">
-                <!-- <a class="nav-link" href="" tabindex="-1" aria-disabled="true">Logout</a> -->
-              </li>
-            </ul>
-                <form class="d-flex"> 
-                  <ul class="navbar-nav me-auto mb-3 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link" href="/" tabindex="-1" aria-disabled="true">Hey {{request.user}} </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout/" tabindex="-1" aria-disabled="true">Logout</a>
-                      </li>
-                    </ul>
                 
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="/login/" tabindex="-1" aria-disabled="true">Login with another account</a>
+              </li> -->
+              
+              
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="" tabindex="-1" aria-disabled="true">Logout</a>
+              </li>
+            </ul> -->
+                <form class="flex"> 
+                  
+                    <button type="button" class="btn btn-warning position-relative">
+                      <i class="fa fa-cart-plus"></i> Cart
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        3
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <a href = '/logout/'>
+                      
+                    <button type="button" class="btn btn-dark" >
+                      <i class="fa fa-power-off"></i>  Logout</button>
+                    </a>
               
                 
                   <!-- Modal -->
@@ -117,20 +123,69 @@
                
             </form>
           </div>
-        </div>
-      </nav>
-      
+        </nav>
+        <div class = 'container'>
 
-     <!-- Optional JavaScript; choose one of the two! -->
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button bg-dark text-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Electronic Products
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body bg-dark text-info">
+                  <strong>Laptops</strong> <div class="card" style="width: 18rem;">
+                    <img src="https://images.unsplash.com/photo-1511385348-a52b4a160dc2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGxhcHRvcHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" class="card-img-top" alt="...">
+                    <div class="card-body bg-dark text-light">
+                      <h5 class="card-title">Laptop</h5>
+                      <p class="card-text">HP 15(2021) 5th Gen Ryzen 5 5500U Laptop with Alexa Built-in, 8GB RAM, 512GB SSD, 15.6-Inch(39.6 cm) FHD Screen, Windows 10, MS Office, (15s-eq2040au)</p><br>
+                      <a href="/createorder/" class="btn btn-warning text-dark"><i class="fa fa-cart-plus"></i> Add to cart</a>
+                      <a href="#" class="btn btn-info text-dark"><i class="fa fa-info"></i> View</a>
+                    </div>
+                  </div>  
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          
+          
+          <h1>
+            <a href = "mailto:abc@example.com?subject = Feedback&body = Message">
+              Send Feedback
+            </a>
+          </h1>
+          
+          <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+          
+          <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="...">
+                <strong class="me-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Hello, world! This is a toast message.
+              </div>
+            </div>
+          </div>
+          
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script> -->
-    
-  </script>
-  </body>
-</html
+          <!-- Optional JavaScript; choose one of the two! -->
+          
+          <!-- Option 1: Bootstrap Bundle with Popper -->
+         </div>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+          
+          <!-- Option 2: Separate Popper and Bootstrap JS -->
+          
+          <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script> -->
+          <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script> -->
+          
+        </script>
+      </body>
+      </html

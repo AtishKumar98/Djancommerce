@@ -1,5 +1,5 @@
-from Sino.models import SA
 from django.contrib import admin
+from .models import Person
 
 
 class SAAdmin(admin.ModelAdmin):
@@ -7,5 +7,5 @@ class SAAdmin(admin.ModelAdmin):
     list_display = ('Firstname', 'Lastname', 'Email','PhoneNo')
 
 
-admin.site.register(SA,SAAdmin)
+admin.site.register(Person ,SAAdmin)
 
